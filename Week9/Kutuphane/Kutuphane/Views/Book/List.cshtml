@@ -1,0 +1,136 @@
+﻿@using Kutuphane.Models
+@model List<Book>
+
+<div class="container mt-5">
+    <div class="header-section">
+        <h2 class="title">📚 Kitap Listesi</h2>
+        <a href="@Url.Action("Create", "Book")" class="btn btn-lg btn-success shadow">+ Yeni Kitap Ekle</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered shadow-lg">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>Yazar ID</th>
+                    <th>Tür</th>
+                    <th>Yayın Tarihi</th>
+                    <th>ISBN</th>
+                    <th>Mevcut Kopyalar</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr class="text-center align-middle">
+                        <td class="fw-bold">@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.AuthorId</td>
+                        <td>@book.Genre</td>
+                        <td>@book.PublishDate.ToString("dd MMM yyyy")</td>
+                        <td>@book.ISBN</td>
+                        <td>@book.CopiesAvailable</td>
+                        <td class="action-buttons">
+                            <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info btn-lg">🔍 Detay</a>
+                            <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-warning btn-lg">✏ Düzenle</a>
+                            <form asp-action="Delete" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@book.Id" />
+                                <button type="submit" class="btn btn-danger btn-lg" onclick="return confirm('Silmek istediğinize emin misiniz?');">🗑 Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    body {
+        background: #f0f2f5;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .table {
+        font-size: 20px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+        .table th {
+            background: #212529;
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+        }
+
+        .table td {
+            font-size: 18px;
+            padding: 12px;
+        }
+
+    .btn {
+        font-size: 18px;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-lg {
+        font-size: 20px;
+        padding: 12px 25px;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    .btn-success {
+        background: #28a745;
+        border: none;
+    }
+
+    .btn-info {
+        background: #17a2b8;
+        border: none;
+        color: white;
+    }
+
+    .btn-warning {
+        background: #ffc107;
+        border: none;
+        color: black;
+    }
+
+    .btn-danger {
+        background: #dc3545;
+        border: none;
+        color: white;
+    }
+
+    .action-buttons {
+        white-space: nowrap;
+    }
+</style>

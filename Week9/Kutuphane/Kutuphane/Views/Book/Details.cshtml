@@ -1,0 +1,71 @@
+﻿@using Kutuphane.Models
+@model Book
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card p-4 shadow-lg" style="width: 40rem; border-radius: 15px; background: #ffffff;">
+        <h2 class="text-center mb-4" style="color: #34495E; font-weight: bold;">
+            📖 Kitap Detayı
+        </h2>
+
+        <dl class="row">
+            <dt class="col-sm-4 text-primary fw-bold">
+                <i class="fas fa-book"></i> Başlık
+            </dt>
+            <dd class="col-sm-8 text-dark">@Model.Title</dd>
+
+            <dt class="col-sm-4 text-primary fw-bold">
+                <i class="fas fa-user"></i> Yazar Adı
+            </dt>
+            <dd class="col-sm-8 text-dark">@Model.AuthorName</dd>
+
+            <dt class="col-sm-4 text-primary fw-bold">
+                <i class="fas fa-layer-group"></i> Tür
+            </dt>
+            <dd class="col-sm-8 text-dark">@Model.Genre</dd>
+
+            <dt class="col-sm-4 text-primary fw-bold">
+                <i class="fas fa-calendar-alt"></i> Yayın Tarihi
+            </dt>
+            <dd class="col-sm-8 text-dark">@Model.PublishDate.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-4 text-primary fw-bold">
+                <i class="fas fa-barcode"></i> ISBN
+            </dt>
+            <dd class="col-sm-8 text-dark">@Model.ISBN</dd>
+
+            <dt class="col-sm-4 text-primary fw-bold">
+                <i class="fas fa-copy"></i> Mevcut Kopyalar
+            </dt>
+            <dd class="col-sm-8 text-dark">@Model.CopiesAvailable</dd>
+        </dl>
+
+        <div class="d-flex justify-content-center mt-3">
+            <a href="@Url.Action("List", "Book")" class="btn btn-secondary px-4 py-2 fw-bold shadow-lg">
+                <i class="fas fa-arrow-left"></i> Geri Dön
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn:hover {
+        background-color: #6c757d !important;
+        transform: scale(1.05);
+    }
+</style>

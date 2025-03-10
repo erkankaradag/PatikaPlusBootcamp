@@ -1,0 +1,81 @@
+﻿@using Kutuphane.Models
+@using Kutuphane.Controllers
+@model BookAddViewModel
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card p-4 shadow-lg" style="width: 40rem; border-radius: 15px; background: #ffffff;">
+        <h2 class="text-center mb-4" style="color: #34495E; font-weight: bold;">
+            📚 Yeni Kitap Ekle
+        </h2>
+
+        <form asp-action="Create" method="post">
+            <div class="form-group mb-3">
+                <label for="Title" class="fw-bold text-primary">
+                    <i class="fas fa-book"></i> Kitap Başlığı
+                </label>
+                <input asp-for="Title" class="form-control shadow-sm" id="Title" required />
+            </div>
+
+            <div class="form-group my-2">
+                <label asp-for="AuthorId">Yazar Seçimi</label>
+                <select asp-for="AuthorId" asp-items="@(new SelectList(AuthorController.authors, "Id", "FullName"))"
+                        class="form-control">
+                    <option value="-1">Yazar seç</option>
+                </select>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label for="Genre" class="fw-bold text-primary">
+                    <i class="fas fa-layer-group"></i> Tür
+                </label>
+                <input asp-for="Genre" class="form-control shadow-sm" id="Genre" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="PublishDate" class="fw-bold text-primary">
+                    <i class="fas fa-calendar-alt"></i> Yayın Tarihi
+                </label>
+                <input asp-for="PublishDate" type="date" class="form-control shadow-sm" id="PublishDate" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="ISBN" class="fw-bold text-primary">
+                    <i class="fas fa-barcode"></i> ISBN
+                </label>
+                <input asp-for="ISBN" class="form-control shadow-sm" id="ISBN" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="CopiesAvailable" class="fw-bold text-primary">
+                    <i class="fas fa-copy"></i> Mevcut Kopyalar
+                </label>
+                <input asp-for="CopiesAvailable" class="form-control shadow-sm" id="CopiesAvailable" required />
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-success px-4 py-2 fw-bold shadow-lg">
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+</style>

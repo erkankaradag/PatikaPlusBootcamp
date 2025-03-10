@@ -1,0 +1,82 @@
+﻿@using Kutuphane.Models
+@model Author
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card p-4 shadow-lg" style="width: 35rem; border-radius: 15px; background: #ffffff;">
+        <h2 class="text-center mb-4" style="color: #34495E; font-weight: bold;">
+            ✍️ Yeni Yazar Ekle
+        </h2>
+
+        <form asp-action="Create" method="post">
+            <div class="form-group mb-3">
+                <label for="FirstName" class="fw-bold text-primary">
+                    <i class="fas fa-user"></i> Adı
+                </label>
+                <input type="text" class="form-control shadow-sm" id="FirstName" name="FirstName" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="LastName" class="fw-bold text-primary">
+                    <i class="fas fa-user-tag"></i> Soyadı
+                </label>
+                <input type="text" class="form-control shadow-sm" id="LastName" name="LastName" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="DateOfBirth" class="fw-bold text-primary">
+                    <i class="fas fa-calendar-alt"></i> Doğum Tarihi
+                </label>
+                <input type="date" class="form-control shadow-sm" id="DateOfBirth" name="DateOfBirth" required />
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-success px-4 py-2 fw-bold shadow-lg">
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 16px;
+        transition: 0.3s ease-in-out;
+    }
+
+        .form-control:focus {
+            border-color: #27ae60;
+            box-shadow: 0 0 10px rgba(39, 174, 96, 0.2);
+        }
+
+    .btn-success {
+        background-color: #27ae60;
+        border-color: #27ae60;
+        border-radius: 25px;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .btn-success:hover {
+            background-color: #219150;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(39, 174, 96, 0.3);
+        }
+</style>

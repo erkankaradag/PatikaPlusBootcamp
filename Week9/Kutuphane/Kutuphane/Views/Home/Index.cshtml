@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="hero-section">
+    <h1>📚 Kütüphane Yönetim Sistemine Hoş Geldiniz! 🎉</h1>
+    <p>Burada kitapları ve yazarları yönetebilir, yeni kitaplar ekleyebilir ve düzenleyebilirsiniz.</p>
+
+    <div class="button-container">
+        <a href="@Url.Action("List", "Book")" class="btn btn-primary">📖 Kitapları Görüntüle</a>
+        <a href="@Url.Action("List", "Author")" class="btn btn-secondary">✍ Yazarları Görüntüle</a>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        text-align: center;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        padding: 60px;
+        border-radius: 15px;
+        color: white;
+        font-family: 'Arial', sans-serif;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #28a745;
+        color: white;
+        border: none;
+    }
+
+        .btn-secondary:hover {
+            background-color: #1e7e34;
+        }
+</style>

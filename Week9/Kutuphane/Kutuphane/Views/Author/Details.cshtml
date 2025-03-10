@@ -1,0 +1,47 @@
+﻿@using Kutuphane.Models
+@model Author
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card p-4 shadow-lg text-center" style="width: 35rem; border-radius: 15px; background: #ffffff;">
+        <h2 class="text-center mb-4" style="color: #34495E; font-weight: bold;">
+            📖 Yazar Detayı
+        </h2>
+
+        <dl class="row text-start">
+            <dt class="col-sm-4 text-primary"><i class="fas fa-user"></i> Adı</dt>
+            <dd class="col-sm-8 fw-bold text-dark">@Model.FirstName</dd>
+
+            <dt class="col-sm-4 text-primary"><i class="fas fa-user-tag"></i> Soyadı</dt>
+            <dd class="col-sm-8 fw-bold text-dark">@Model.LastName</dd>
+
+            <dt class="col-sm-4 text-primary"><i class="fas fa-calendar-alt"></i> Doğum Tarihi</dt>
+            <dd class="col-sm-8 fw-bold text-dark">@Model.DateOfBirth.ToString("yyyy-MM-dd")</dd>
+        </dl>
+
+        <div class="d-flex justify-content-center mt-4">
+            <a href="@Url.Action("List", "Author")" class="btn btn-danger shadow-lg px-4 py-2 fw-bold">
+                <i class="fas fa-arrow-left"></i> Geri Dön
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+    dt {
+        font
