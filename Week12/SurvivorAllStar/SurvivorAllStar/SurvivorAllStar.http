@@ -1,0 +1,6 @@
+@SurvivorAllStar_HostAddress = http://localhost:5003
+
+GET {{SurvivorAllStar_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
