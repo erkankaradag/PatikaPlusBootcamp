@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DependencyInjection.Manager;
-using DependencyInjection.Serives;
 using DependencyInjection.Service;
+using DependencyInjection.Services;
 
 namespace DependencyInjection
 {
